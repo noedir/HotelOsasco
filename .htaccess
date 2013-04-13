@@ -1,0 +1,21 @@
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([a-zA-Z0-9_-]+).html$ index.php?pg=$1
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+#Remove o acesso a pasta system
+RewriteCond %{REQUEST_URI} ^system.*
+
+#Redireciona /index.php/nomedocontroller/ to /nomedocontroller/fun��o/
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+#se o arquivo n�o existir (um css ou javascript por exemplo)
+#ele redireciona para o index.php
+RewriteCond $1 !^(index\.php|css|js|image|images|banner|fotos|plataforma|robots\.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+</IfModule>
