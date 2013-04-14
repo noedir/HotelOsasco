@@ -18,18 +18,26 @@ class Login extends CI_Controller {
 
             if(count($input) > 0){
                 $input['senha'] = sha1(md5($input['username']).":".md5($input['password']));
-                $ac = $this->access->acesso($input)->result();
+                $ac = $this->access->acesso($input)->result_array();
 
-                if($ac){
-                    foreach($ac as $us => $va){
-                        $this->session->set_userdata($va,$va);
+                if(count($ac) > 0){
+                    foreach($ac as $us){
+                        $this->session->set_userdata('us_codigo',$us['us_codigo']);
+                        $this->session->set_userdata('us_nome',$us['us_nome']);
+                        $this->session->set_userdata('us_email',$us['us_email']);
+                        $this->session->set_userdata('us_senha',$us['us_senha']);
+                        $this->session->set_userdata('us_telefone',$us['us_telefone']);
+                        $this->session->set_userdata('us_creci',$us['us_creci']);
+                        $this->session->set_userdata('us_celular',$us['us_celular']);
+                        $this->session->set_userdata('us_endereco',$us['us_endereco']);
                     }
-                    $this->session->set_userdata('login','sim');
-                    
+                    $this->session->set_userdata('logado','sim');
+                    redirect('admin');
                 }else{
                     $this->session->set_userdata('erro','Login ou senha incorretos');
                     $this->session->set_userdata('css','error');
                     $dados['result'] = 'nao';
+                    $this->session->set_userdata('logado','nao');
                 }
             }
         }

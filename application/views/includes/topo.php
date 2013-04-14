@@ -1,3 +1,4 @@
+<div id="ur" data-url="<?php echo base_url(); ?>"></div>
 <!-- Topo do site -->
 <div id="fxtopo">
     <div id="topo">

@@ -21,6 +21,7 @@
                                             <?php } ?>
                                             <form class="form-horizontal" method="post" action="<?php echo current_url(); ?>" enctype="multipart/form-data">
 						  <fieldset>
+                                                      <?php if(!in_array($pag[0]->pg_slug,$ignore)){ ?>
 							<div class="control-group">
                                                             <label for="selectError3" class="control-label">Menu / Submenu</label>
                                                             <div class="controls">
@@ -41,6 +42,9 @@
                                                               </select>
                                                             </div>
 							</div>
+                                                      <?php }else{ ?>
+                                                      <input type="hidden" value="<?php echo $pag[0]->pg_codigo.'-'.$pag[0]->pg_menu; ?>" name="pai">
+                                                      <?php } ?>
                                                       <div class="control-group">
 							  <label for="titmenu" class="control-label">Título Menu </label>
 							  <div class="controls">

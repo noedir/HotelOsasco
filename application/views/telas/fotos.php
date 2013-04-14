@@ -10,7 +10,6 @@
                     echo '<li><a href="'.base_url().'/fotos/'.$ft['ft_imagem'].'" alt="Fotos" title="'.$ft['ft_titulo'].'" rel="prettyPhoto[fotos]"><img src="'.base_url().'/fotos/'.$ft['ft_imagem'].'"></a></li>';
                 }
                 ?>
-                <li></li>
             </ul>
         </div>
         <?php }else{ ?>

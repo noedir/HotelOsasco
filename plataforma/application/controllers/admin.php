@@ -13,7 +13,11 @@ class Admin extends CI_Controller {
             'fotos' => $this->adm->total('fotos'),
             'banner' => $this->adm->total('banner'),
         );
-        $this->load->view('adm_view',$dados);
+        if($this->session->userdata('logado') != 'sim'){
+            redirect('login');
+        }else{
+            $this->load->view('adm_view',$dados);
+        }
     }
 
     public function sair(){

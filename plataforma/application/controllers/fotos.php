@@ -7,6 +7,10 @@ class Fotos extends CI_Controller {
         $this->load->model('foto_model','mod');
         $this->load->library('form_validation');
         $this->load->library('upload');
+        
+        if($this->session->userdata('logado') != 'sim'){
+            redirect('login');
+        }
     }
     
     public function index(){

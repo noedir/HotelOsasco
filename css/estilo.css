@@ -19,6 +19,7 @@ root {
 body{
     font-family: arial,cursive,sans-serif;
     font-size: 14px;
+    padding-bottom: 60px;
 }
 
 #fxtopo{
@@ -107,7 +108,7 @@ body{
     position: relative;
     float: left;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 #fxpagina #pagina{
     position: relative;
@@ -116,6 +117,52 @@ body{
     padding: 10px;
     margin: 0px auto;
     border-top: 2px solid #999;
+}
+#pagina .box-left{
+    position: relative;
+    float: left;
+    width: 500px;
+    padding: 10px;
+    border-right: 2px #ddd dotted;
+}
+#pagina .box-right{
+    position: relative;
+    float: right;
+    width: 420px;
+    padding: 10px;
+}
+.box-right #fotosh{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    max-width: 420px;
+    padding-bottom: 60px;    
+}
+#fotosh .mais{
+    text-align: right;
+    font-size: 11px;
+    font-style: italic;
+}
+.mais a{
+    color: #666;
+    text-decoration: none;
+}
+.mais a:hover{
+    color: #000;
+}
+#fotosh img{
+    max-width: 420px;
+}
+#fotosh .titulo{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 410px;
+    padding: 5px;
+    font-size: 16px;
+    background: url(../image/quadro.png);
+    color: #bf3;
+    text-align: center;
 }
 #pagina h2{
     margin: 10px 0px;
@@ -147,9 +194,13 @@ body{
 }
 #fotos img{
     height: 100%;
+    transition: all 0.3s ease 0s;
 }
 #fotos img:hover{
-    rotation: 25degree
+    transform: scale(1.25) rotate(-5deg);
+}
+#fotos ul li:hover{
+    box-shadow: 0px 0px 10px #333;
 }
 #contato h3{
     margin: 10px 0px 30px 0px;

@@ -56,6 +56,16 @@ class Site extends CI_Controller {
         }
     }
     
+    public function fotos(){
+        header("content-type: application/json");
+        $query = $this->sdb->get_foto($this->session->userdata('us_codigo'))->result_array();
+        
+        $saida['foto'] = $query[0]['ft_imagem'];
+        $saida['titulo'] = $query[0]['ft_titulo'];
+        
+        echo json_encode($saida);
+    }
+    
     public function pagina(){
         $slug = $this->uri->segment(3);
         

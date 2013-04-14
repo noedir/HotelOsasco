@@ -33,4 +33,7 @@ class Site_model extends CI_Model {
     public function get_fotos($id){
         return $this->db->get_where('fotos',array('ft_usuario'=>$id,'ft_ativo'=>'s'));
     }
+    public function get_foto(){
+        return $this->db->query("SELECT * FROM fotos WHERE ft_ativo = 's' ORDER BY RAND() LIMIT 1");
+    }
 }

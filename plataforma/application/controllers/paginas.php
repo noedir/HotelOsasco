@@ -15,7 +15,11 @@ class Paginas extends CI_Controller {
             'tela' => 'paginas',
             'array_bd' => $this->mod->get_all()->result(),
         );
-        $this->load->view('pagina_view',$dados);
+        if($this->session->userdata('logado') != 'sim'){
+            redirect('login');
+        }else{
+            $this->load->view('pagina_view',$dados);
+        }
     }
     
     public function status(){
@@ -104,6 +108,7 @@ class Paginas extends CI_Controller {
             'tela' => 'editpagina',
             'pag' => $this->mod->get_all($this->uri->segment(3))->result(),
             'smenu' => $this->mod->get_smenu()->result_array(),
+            'ignore' => array('fotos','lancamento','localizacao','contato','home'),
         );
 
         $this->load->view('pagina_view',$dados);
